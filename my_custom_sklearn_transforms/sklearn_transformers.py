@@ -101,7 +101,9 @@ class Normalize():
     def predict(self, X, y=None):
         return X
 
-    def transform(self, csv):
+    def transform(self, X):
+        csv = np.array(X, dtype=str)
+        csv[pd.isnull(x)] = ''
         data = np.zeros((csv.shape[0], 0))
         for col in range(1, 44):
             if col == 2:
