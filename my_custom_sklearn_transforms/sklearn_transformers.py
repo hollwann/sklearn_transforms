@@ -108,8 +108,10 @@ class Normalize():
         for col in range(1, 44):
             if col == 2:
                 # continue
-                u = np.array(['', 'CANDIDATE', 'FALSE POSITIVE'])
-                column = class_to_one_hot(csv[:, col])
+                column = np.array(csv[:, col])
+                column[column == ''] = 0.0
+                column[column == 'CANDIDATE'] = 1.0
+                column[column == 'FALSE POSITIVE'] = 2.0
             elif col == 3:
                 edad = np.array(csv[:, 3])
                 mean = b[3, 0]
