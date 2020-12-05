@@ -103,7 +103,7 @@ class Normalize():
 
     def transform(self, X):
         csv = np.array(X, dtype=str)
-        csv[pd.isnull(x)] = ''
+        csv[pd.isnull(csv)] = ''
         data = np.zeros((csv.shape[0], 0))
         for col in range(1, 44):
             if col == 2:
