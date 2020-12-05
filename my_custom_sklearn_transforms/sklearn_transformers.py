@@ -172,7 +172,7 @@ class Keras():
         prediction = np.argmax(model.predict(x), axis=1)
         labels = np.array(['0', '1', '2'], dtype='<U23')
 
-        return labels[prediction]
+        return prediction
 
     def predict_proba(self, x, y=None):
         model = build_model()
